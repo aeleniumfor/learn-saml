@@ -1,0 +1,30 @@
+{
+    "strict": true,
+    "debug": true,
+    "security": {
+        "nameIdEncrypted": false,
+        "authnRequestsSigned": false
+    },
+    "sp": {
+        "entityId": "https://<SPのエンドポイント>/saml/meta",
+        "assertionConsumerService": {
+            "url": "https://<SPのエンドポイント>/saml/acs",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        },
+        "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "x509cert": "",
+        "privateKey": ""
+    },
+    "idp": {
+        "entityId": "<IdPのentityId>",
+        "singleSignOnService": {
+            "url": "<<IdPのログインエンドポイント>",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "singleLogoutService": {
+            "url": "<IdPのログアウトエンドポイント(今回利用していない)>",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "x509cert": <IdPからダウンロードした、x509証明書>
+    }
+}
